@@ -62,7 +62,7 @@ function ip_address {
 #------------------------------------------------------------------------------
 # Helper function to return normal or super user prompt character
 function prompt_char {
-    [[ ${EUID} -eq 0 ]] && echo "#" || echo "\$"
+    [[ ${EUID} -eq 0 ]] && echo "#" || echo "λ"
 }
 
 # -----------------------------------------------------------------------------
@@ -99,8 +99,6 @@ function user_segment {
     if [ "$PL_USER_SHOW_HOST" = true ]; then
         if [ "$PL_USER_USE_IP" = true ]; then
             content+="@$(ip_address)"
-        else
-            content+="@\h"
         fi
     fi
     PS1+="$(segment_end "$fg_color" "$bg_color")"
